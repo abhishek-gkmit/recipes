@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 function getThemedStyles(colors: Colors) {
   return StyleSheet.create({
@@ -7,7 +7,7 @@ function getThemedStyles(colors: Colors) {
       backgroundColor: colors.background,
     },
 
-    flexJustifiedAlignedCenter: {
+    centerAlignContainer: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
