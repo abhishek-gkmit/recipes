@@ -1,11 +1,12 @@
 import React, { createContext, useMemo } from 'react';
 import { useColorScheme } from 'react-native';
 
+import { colorSchemes } from '@constants';
 import { colors } from '@theme/colors';
 
 const ThemeContext = createContext<ThemeContextValues>({
-  theme: 'light',
-  colors: colors.light,
+  theme: colorSchemes.light,
+  colors: colors[colorSchemes.light],
 });
 
 function ThemeContextProvider({ children }: React.PropsWithChildren) {
@@ -13,7 +14,7 @@ function ThemeContextProvider({ children }: React.PropsWithChildren) {
 
   const { colorsByTheme } = useMemo(() => {
     return {
-      colorsByTheme: colors[theme || 'light'],
+      colorsByTheme: colors[theme || colorSchemes.light],
     };
   }, [theme]);
 
