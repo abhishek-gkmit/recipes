@@ -5,6 +5,7 @@ import {
   TextInputProps,
   TextProps,
   TextStyle,
+  ViewStyle,
 } from 'react-native/types';
 
 declare global {
@@ -43,5 +44,16 @@ declare global {
     icon: Icon;
     btnStyle?: StyleProp<ViewStyle>;
     iconStyle?: StyleProp<ViewStyle>;
+  }
+
+  type RecipeCardProps = RandomRecipe;
+
+  interface RecipeCardListProps extends FlatListProps {
+    title: string;
+    data: RandomRecipe[];
+    listContainerStyles?: StyleProp<ViewStyle>;
+    titleStyles?: StyleProp<TextStyle>;
+    listStyles?: StyleProp<ViewStyle>;
+    listContentContainerStyles?: StyleProp<ViewStyle>;
   }
 }
