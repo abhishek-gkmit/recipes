@@ -1,8 +1,14 @@
 import { ReactElement } from 'react';
-import { StyleProp, TextStyle } from 'react-native/types';
+import { TouchableOpacityProps } from 'react-native-gesture-handler';
+import {
+  StyleProp,
+  TextInputProps,
+  TextProps,
+  TextStyle,
+} from 'react-native/types';
 
 declare global {
-  interface TextBlockProps {
+  interface TextBlockProps extends TextProps {
     style?: StyleProp<TextStyle>;
     children: string;
   }
@@ -10,12 +16,32 @@ declare global {
   interface Icon {
     name: string;
     color?: string;
-    size?: string;
+    size?: number;
   }
 
   interface BottomTabProps {
     isFocused: boolean;
     title: string;
     onPress: () => void;
+  }
+
+  interface InputProps extends TextInputProps {
+    value?: string;
+    setValue?: (value: string) => void;
+    icon?: Icon;
+  }
+
+  interface ButtonWithIconProps extends TouchableOpacityProps {
+    text: string;
+    icon?: Icon;
+    iconPosition?: 'start' | 'end';
+    textStyle?: StyleProp<TextStyle>;
+    style?: StyleProp<ViewStyle>;
+  }
+
+  interface IconButtonProps extends TouchableOpacityProps {
+    icon: Icon;
+    btnStyle?: StyleProp<ViewStyle>;
+    iconStyle?: StyleProp<ViewStyle>;
   }
 }

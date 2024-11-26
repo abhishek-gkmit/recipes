@@ -1,8 +1,14 @@
 import axios, { AxiosError, CreateAxiosDefaults } from 'axios';
 
 import { handleError } from './errorHandler';
+import { apiConstants } from './apiConstants';
 
-const instanceConfig: CreateAxiosDefaults = {};
+const instanceConfig: CreateAxiosDefaults = {
+  baseURL: apiConstants.BASE_URL,
+  headers: {
+    'x-api-key': apiConstants.API_KEY,
+  },
+};
 
 export const axiosInstance = axios.create(instanceConfig);
 
