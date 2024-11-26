@@ -6,17 +6,21 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import useStyles from '@hooks/useStyles';
 import useThemeContext from '@hooks/useThemeContext';
+import ROUTES from '@constants/routes';
 
 import bottomTabBarStyles from './styles';
 
 function getIconName(routeName: string) {
   switch (routeName) {
-    case 'DashboardStack':
+    case ROUTES.BottomTabs.DashboardStack:
       return 'home';
-    case 'Favourites':
+
+    case ROUTES.BottomTabs.Favourites:
       return 'heart';
-    case 'MealPlanner':
+
+    case ROUTES.BottomTabs.MealPlanner:
       return 'clipboard-text-outline';
+
     default:
       return 'crosshairs-question';
   }
