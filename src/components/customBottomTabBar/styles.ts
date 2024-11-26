@@ -9,6 +9,7 @@ function bottomTabBarStyles(colors: Colors) {
       justifyContent: 'center',
       backgroundColor: colors.background,
       height: verticalScale(60),
+      elevation: 30,
     },
 
     tabContainer: {
