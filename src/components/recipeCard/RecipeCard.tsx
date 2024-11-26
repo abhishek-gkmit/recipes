@@ -1,10 +1,9 @@
 import { View, TouchableOpacity } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import TextBlock from '@components/customText';
-import useStyles from '@hooks/useStyles';
-
-import FastImage from 'react-native-fast-image';
 import IconButton from '@components/iconButton';
+import useStyles from '@hooks/useStyles';
 import useThemeContext from '@hooks/useThemeContext';
 import { fontSize } from '@constants/fonts';
 
