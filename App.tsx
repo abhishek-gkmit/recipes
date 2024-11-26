@@ -1,7 +1,12 @@
-import { Text } from 'react-native';
+import {ThemeContextProvider} from '@config/contexts/ThemeContext';
+import MainNavigator from '@config/MainNavigator';
 
 function App() {
-  return <Text>App</Text>;
+  return (
+    <ThemeContextProvider>
+      <MainNavigator />
+    </ThemeContextProvider>
+  );
 }
 
 export default App;

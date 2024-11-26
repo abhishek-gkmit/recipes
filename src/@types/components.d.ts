@@ -6,4 +6,16 @@ declare global {
     style?: StyleProp<TextStyle>;
     children: string;
   }
+
+  interface Icon {
+    name: string;
+    color?: string;
+    size?: string;
+  }
+
+  interface BottomTabProps {
+    isFocused: boolean;
+    title: string;
+    onPress: () => void;
+  }
 }
