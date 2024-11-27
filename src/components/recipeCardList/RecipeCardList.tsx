@@ -44,7 +44,7 @@ function RecipeCardList({
       )}
       showsHorizontalScrollIndicator={false}
       initialNumToRender={3}
-      ListEmptyComponent={<EmptyListIndicator title="recipes" />}
+      ListEmptyComponent={<EmptyListIndicator title="No recipes found" />}
       {...props}
     />
   );

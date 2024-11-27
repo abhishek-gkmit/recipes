@@ -1,10 +1,11 @@
-import {memo, useMemo} from 'react';
-import {TouchableOpacity} from 'react-native';
+import { memo, useMemo } from 'react';
+import { TouchableOpacity } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import TextBlock from '@components/customText';
 import useStyles from '@hooks/useStyles';
-import {fontSize} from '@constants/fonts';
+import useThemeContext from '@hooks/useThemeContext';
+import { fontSize } from '@constants/fonts';
 
 import toggleButtonStyles from './styles';
 
@@ -14,6 +15,8 @@ function ToggleButton({
   showIcon,
   onToggle,
 }: ToggleButtonProps) {
+  const { colors } = useThemeContext();
+
   const styles = useStyles(toggleButtonStyles);
 
   const handleToggle = () => {
@@ -23,8 +26,12 @@ function ToggleButton({
   };
 
   const toggleIcon = useMemo(() => {
-    return showIcon ? (
-      <MaterialIcons name="cancel" size={fontSize.eighteen} />
+    return showIcon && toggleState ? (
+      <MaterialIcons
+        name="cancel"
+        size={fontSize.eighteen}
+        color={toggleState ? colors.white : colors.primary}
+      />
     ) : null;
   }, [showIcon]);
 

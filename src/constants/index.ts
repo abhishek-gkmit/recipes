@@ -3,4 +3,24 @@ const colorSchemes = {
   light: 'light',
 } as const;
 
-export { colorSchemes };
+const cuisines = [
+  'Indian',
+  'Thai',
+  'French',
+  'American',
+  'Japanese',
+  'Chinese',
+  'Italian',
+  'Korean',
+  'Mexican',
+];
+
+const diets = [
+  'Vegetarian',
+  'Gluten Free',
+  'Vegan',
+  'Ketogenic',
+  'Pescetarian',
+];
+
+export { colorSchemes, cuisines, diets };
