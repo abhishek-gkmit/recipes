@@ -6,6 +6,7 @@ import {
   TextProps,
   TextStyle,
   ViewStyle,
+  FlatListProps,
 } from 'react-native/types';
 
 declare global {
@@ -48,7 +49,7 @@ declare global {
 
   type RecipeCardProps = RandomRecipe;
 
-  interface RecipeCardListProps extends FlatListProps {
+  interface RecipeCardListProps extends Partial<FlatListProps<any>> {
     data: RandomRecipe[];
     title?: string;
     loading?: boolean;
@@ -65,7 +66,7 @@ declare global {
   interface EmptyListIndicatorProps {
     title?: string;
   }
-  
+
   interface ToggleButtonProps {
     title?: string;
     toggleState?: boolean;

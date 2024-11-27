@@ -5,6 +5,7 @@ import { horizontalScale, moderateScale } from '@utility/scalingHelpers';
 function toggleButtonStyles(colors: Colors) {
   return StyleSheet.create({
     toggleButton: {
+      flexDirection: 'row',
       backgroundColor: colors.background,
       padding: moderateScale(5),
       paddingHorizontal: horizontalScale(10),
