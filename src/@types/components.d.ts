@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
-import { TouchableOpacityProps } from 'react-native-gesture-handler';
+import {ReactElement} from 'react';
+import {TouchableOpacityProps} from 'react-native-gesture-handler';
 import {
   StyleProp,
   TextInputProps,
@@ -49,8 +49,9 @@ declare global {
   type RecipeCardProps = RandomRecipe;
 
   interface RecipeCardListProps extends FlatListProps {
-    title: string;
     data: RandomRecipe[];
+    title?: string;
+    loading?: boolean;
     listContainerStyles?: StyleProp<ViewStyle>;
     titleStyles?: StyleProp<TextStyle>;
     listStyles?: StyleProp<ViewStyle>;
