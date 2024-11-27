@@ -65,4 +65,19 @@ declare global {
   interface EmptyListIndicatorProps {
     title?: string;
   }
+  
+  interface ToggleButtonProps {
+    title?: string;
+    toggleState?: boolean;
+    showIcon?: boolean;
+    onToggle?: (toggleState: boolean) => void;
+  }
+
+  interface ToggleFilterListProps {
+    filters: string[];
+    activeFilters: string[];
+    title?: string;
+    selectMultipleFilters?: boolean;
+    onFiltersChange?: (filters: string[]) => void;
+  }
 }
