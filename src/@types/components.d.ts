@@ -1,5 +1,5 @@
-import {ReactElement} from 'react';
-import {TouchableOpacityProps} from 'react-native-gesture-handler';
+import { ReactElement } from 'react';
+import { TouchableOpacityProps } from 'react-native-gesture-handler';
 import {
   StyleProp,
   TextInputProps,
@@ -58,6 +58,14 @@ declare global {
     listContentContainerStyles?: StyleProp<ViewStyle>;
   }
 
+  interface CustomLoaderProps {
+    size?: 'small' | 'large' | number;
+  }
+
+  interface EmptyListIndicatorProps {
+    title?: string;
+  }
+  
   interface ToggleButtonProps {
     title?: string;
     toggleState?: boolean;
