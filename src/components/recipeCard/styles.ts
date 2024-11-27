@@ -9,15 +9,22 @@ import {
 
 function recipeCardStyles(colors: Colors) {
   return StyleSheet.create({
-    recipeCard: {
+    recipeCardGradient: {
       height: verticalScale(180),
       width: horizontalScale(150),
-      backgroundColor: colors.recipeCardBackground,
       borderRadius: moderateScale(15),
-      padding: moderateScale(10),
       justifyContent: 'center',
       elevation: 5,
       marginTop: verticalScale(50),
+    },
+
+    recipeCard: {
+      height: verticalScale(180),
+      width: horizontalScale(150),
+      backgroundColor: colors.black0,
+      borderRadius: moderateScale(15),
+      padding: moderateScale(10),
+      justifyContent: 'center',
     },
 
     recipeTitle: {
@@ -63,6 +70,7 @@ function recipeCardStyles(colors: Colors) {
       margin: moderateScale(10),
       backgroundColor: colors.background,
       borderRadius: moderateScale(100),
+      elevation: 5,
     },
   });
 }
