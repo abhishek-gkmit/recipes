@@ -12,7 +12,7 @@ import {
 declare global {
   interface TextBlockProps extends TextProps {
     style?: StyleProp<TextStyle>;
-    children: string;
+    children?: string | number | string[];
   }
 
   interface Icon {

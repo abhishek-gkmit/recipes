@@ -1,4 +1,4 @@
-import {ThemeContextProvider} from '@config/contexts/ThemeContext';
+import { ThemeContextProvider } from '@config/contexts/ThemeContext';
 import MainNavigator from '@config/MainNavigator';
 
 function App() {
