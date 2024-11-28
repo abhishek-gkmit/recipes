@@ -94,4 +94,13 @@ declare global {
     to?: number;
     children: ReactNode;
   }
+
+  interface SlideInProps {
+    delay?: number;
+    style?: StyleProp<ViewStyle>;
+    duration?: number;
+    from?: number;
+    to?: number;
+    children: ReactNode;
+  }
 }
