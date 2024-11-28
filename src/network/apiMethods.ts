@@ -1,7 +1,10 @@
-import {formatRandomRecipes} from '@utility/dataFormatters';
+import {
+  formatRandomRecipes,
+  formatRecipeDetails,
+} from '@utility/dataFormatters';
 
-import {_get} from './axiosMethods';
-import {apiEndpoints} from './apiConstants';
+import { _get } from './axiosMethods';
+import { apiEndpoints } from './apiConstants';
 
 export async function getRandomRecipes(tags?: string[], count?: number) {
   const includeTags = tags?.map(tag => tag.toLowerCase())?.join(', ');
@@ -16,4 +19,21 @@ export async function getRandomRecipes(tags?: string[], count?: number) {
   const recepies = formatRandomRecipes(res.data?.recipes);
 
   return recepies;
+}
+
+export async function getRecipeDetails(
+  recipeId?: string,
+  includeNutrition = false,
+) {
+  if (!recipeId) {
+    return;
+  }
+
+  const res = await _get(apiEndpoints.recipeDetails(recipeId), {
+    includeNutrition,
+  });
+
+  const recipeDetails = formatRecipeDetails(res.data);
+
+  return recipeDetails;
 }

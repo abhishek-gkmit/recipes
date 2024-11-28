@@ -21,6 +21,7 @@ function DashboardStack() {
       <Stack.Screen
         name={ROUTES.DashboardStack.RecepiDetails}
         component={RecepiDetails}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
