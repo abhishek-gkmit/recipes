@@ -12,7 +12,7 @@ import {
 declare global {
   interface TextBlockProps extends TextProps {
     style?: StyleProp<TextStyle>;
-    children: string;
+    children?: string;
   }
 
   interface Icon {
@@ -80,5 +80,27 @@ declare global {
     title?: string;
     selectMultipleFilters?: boolean;
     onFiltersChange?: (filters: string[]) => void;
+  }
+
+  interface IngredientCardProps extends Ingredient {
+    servings: number;
+  }
+
+  interface FadeInSlideUpProps {
+    delay?: number;
+    style?: StyleProp<ViewStyle>;
+    duration?: number;
+    from?: number;
+    to?: number;
+    children: ReactNode;
+  }
+
+  interface SlideInProps {
+    delay?: number;
+    style?: StyleProp<ViewStyle>;
+    duration?: number;
+    from?: number;
+    to?: number;
+    children: ReactNode;
   }
 }
