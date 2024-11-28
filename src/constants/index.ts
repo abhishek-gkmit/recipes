@@ -23,4 +23,7 @@ const diets = [
   'Pescetarian',
 ];
 
-export { colorSchemes, cuisines, diets };
+const ingredientImageUrl = (imageName: string) =>
+  `https://img.spoonacular.com/ingredients_500x500/${imageName}`;
+
+export { colorSchemes, cuisines, diets, ingredientImageUrl };
