@@ -62,11 +62,14 @@ function RecipeInstructionsList() {
 
   const styles = useStyles(recepiDetailsStyles);
 
+  const serves = servings + (servings > 1 ? ' serves' : ' serve');
+  const steps = instructions.length || '' + ' Steps'
+
   return (
     <ScrollView contentContainerStyle={styles.recipeInstructionList}>
       <View style={styles.recipeInstructionListHeading}>
-        <TextBlock>{servings + (servings > 1 ? ' serves' : ' serve')}</TextBlock>
-        <TextBlock>{instructions?.length + ' Steps'}</TextBlock>
+        <TextBlock>{serves}</TextBlock>
+        <TextBlock>{steps}</TextBlock>
       </View>
 
       {instructions?.map(instruction => (

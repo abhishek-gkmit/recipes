@@ -9,8 +9,6 @@ import { fontFamily, fontSize } from '@constants/fonts';
 
 function recepiDetailsStyles(colors: Colors) {
   return StyleSheet.create({
-    recipeDetails: {},
-
     recipeImage: {
       height: verticalScale(250),
       marginBottom: verticalScale(10),
@@ -40,32 +38,36 @@ function recepiDetailsStyles(colors: Colors) {
       left: 'auto',
     },
 
-    recipeDescription: { fontSize: 14, padding: 20 },
+    recipeDescription: { fontSize: fontSize.fourteen, padding: moderateScale(20) },
 
-    ingredientListContent: { gap: 10, paddingHorizontal: 20 },
+    ingredientListContent: { gap: moderateScale(10), paddingHorizontal: horizontalScale(20) },
 
-    ingredientList: { marginTop: 20 },
+    ingredientList: { marginTop: verticalScale(20) },
 
     recipeInstruction: {
-      gap: 10,
+      gap: moderateScale(10),
       backgroundColor: colors.brightGray,
-      padding: 10,
-      borderRadius: 10,
+      padding: moderateScale(10),
+      borderRadius: moderateScale(10),
     },
 
     recipeInstructionStep: {
-      fontSize: 16,
+      fontSize: fontSize.sixteen,
       fontFamily: fontFamily.NunitoSansSemiBold,
     },
 
-    recipeInstructionDesc: { fontSize: 14 },
+    recipeInstructionDesc: { fontSize: fontSize.fourteen },
 
-    recipeInstructionList: { padding: 20, gap: 10 },
+    recipeInstructionList: { padding: moderateScale(20), gap: moderateScale(10) },
 
     recipeInstructionListHeading: {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
+
+    backAndFavouritesButtons: {
+      zIndex: 5
+    }
   });
 }
 

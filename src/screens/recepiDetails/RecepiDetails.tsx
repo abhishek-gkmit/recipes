@@ -1,23 +1,23 @@
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 
 import TextBlock from '@components/customText';
-import FadeInSlideUp from '@components/fadeInSlideUp';
 import Loader from '@components/customLoader';
 import IconButton from '@components/iconButton';
+import FadeInSlideUp from '@components/animations/fadeInSlideUp';
 import useStyles from '@hooks/useStyles';
 import useThemeContext from '@hooks/useThemeContext';
 import { ImagePlaceholder } from '@constants/images';
 import { getRecipeDetails } from '@network/apiMethods';
+import getGlobalStyles from '@theme/globalStyles';
 
 import RecipeDetailsTabView from './RecipeDetailsTabView';
 import {
   RecipeDetailsContext,
   initialContextValues,
 } from './RecipeDetailsContext';
-import getGlobalStyles from '@theme/globalStyles';
 import recepiDetailsStyles from './styles';
 
 function BackAndFavouritesButtons({ navigation }: BackAndFavouritesButtonsProps) {
@@ -26,7 +26,7 @@ function BackAndFavouritesButtons({ navigation }: BackAndFavouritesButtonsProps)
   const localStyles = useStyles(recepiDetailsStyles);
 
   return (
-    <FadeInSlideUp style={{ zIndex: 5 }}>
+    <FadeInSlideUp style={localStyles.backAndFavouritesButtons}>
       <IconButton
         icon={{
           name: 'arrow-left-circle-outline',
@@ -66,7 +66,6 @@ function RecepiDetails() {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
     loadRecipeDetails();
   }, []);
 
@@ -77,10 +76,7 @@ function RecepiDetails() {
   return (
     <RecipeDetailsContext.Provider value={recipeDetails}>
       <View
-        style={StyleSheet.compose(
-          globalStyles.screen,
-          localStyles.recipeDetails,
-        )}>
+        style={globalStyles.screen}>
         <BackAndFavouritesButtons navigation={navigation} />
 
         <FadeInSlideUp delay={100}>

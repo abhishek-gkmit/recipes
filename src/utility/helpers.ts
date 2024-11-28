@@ -1,3 +1,5 @@
+// returns the fraction of a floating point number
+// like for input 0.5 it will return 1/2
 export function getFraction(decimal: number) {
   let denominator;
   for (denominator = 1; (decimal * denominator) % 1 !== 0; denominator++);
