@@ -10,17 +10,12 @@ import IconButton from '@components/iconButton';
 import useStyles from '@hooks/useStyles';
 import useThemeContext from '@hooks/useThemeContext';
 import { ImagePlaceholder } from '@constants/images';
-import { formatRecipeDetails } from '@utility/dataFormatters';
-
-import getGlobalStyles from '@theme/globalStyles';
-import RecipeDetailsTabView from './RecipeDetailsTabView';
-import { RecipeDetailsContext, initialContextValues } from './RecipeDetailsContext';
-import recepiDetailsStyles from './styles';
-
-import { dataWithoutNutrition } from './dummy_data';
 import { getRecipeDetails } from '@network/apiMethods';
 
-const dummyRecipeData = formatRecipeDetails(dataWithoutNutrition);
+import RecipeDetailsTabView from './RecipeDetailsTabView';
+import { RecipeDetailsContext, initialContextValues } from './RecipeDetailsContext';
+import getGlobalStyles from '@theme/globalStyles';
+import recepiDetailsStyles from './styles';
 
 function BackAndFavouritesButtons({ navigation }: BackAndFavouritesButtonsProps) {
   const { colors } = useThemeContext();
@@ -51,7 +46,7 @@ function BackAndFavouritesButtons({ navigation }: BackAndFavouritesButtonsProps)
 
 function RecepiDetails() {
   const [recipeDetails, setRecipeDetails] =
-    useState<RecipeData>(dummyRecipeData);
+    useState<RecipeData>(initialContextValues);
   const [loading, setLoading] = useState(true);
 
   const navigation = useNavigation<RecepiDetailsNavigationProp>();
@@ -70,7 +65,7 @@ function RecepiDetails() {
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
-    // loadRecipeDetails();
+    loadRecipeDetails();
   }, []);
 
   if (loading) {
@@ -90,7 +85,7 @@ function RecepiDetails() {
         <FadeInSlideUp delay={100}>
           <FastImage
             source={{
-              uri: 'https://img.spoonacular.com/recipes/636602-556x370.jpg',
+              uri: recipeDetails.imageUrl,
             }}
             defaultSource={ImagePlaceholder}
             style={localStyles.recipeImage}
