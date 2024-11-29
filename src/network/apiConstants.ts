@@ -8,4 +8,6 @@ export const apiConstants = {
 export const apiEndpoints = {
   randomRecipes: '/recipes/random',
   recipeDetails: (id: string | number) => `/recipes/${id}/information`,
+  recipeDetailsBulk: '/recipes/informationBulk',
+  search: '/recipes/complexSearch',
 };
