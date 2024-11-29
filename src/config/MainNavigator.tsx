@@ -1,12 +1,20 @@
 import { NavigationContainer } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
 import BottomTabsNavigator from '@navigation/BottomTabs';
 
+import { FavouritesContextProvider } from './contexts/FavouritesContext';
+
 function MainNavigator() {
   return (
-    <NavigationContainer>
-      <BottomTabsNavigator />
-    </NavigationContainer>
+    <>
+      <FavouritesContextProvider>
+        <NavigationContainer>
+          <BottomTabsNavigator />
+        </NavigationContainer>
+      </FavouritesContextProvider>
+      <Toast />
+    </>
   );
 }
 
