@@ -37,3 +37,48 @@ export async function getRecipeDetails(
 
   return recipeDetails;
 }
+
+export async function getRecipeDetailsBulk(
+  recipeIds?: string[],
+  includeNutrition = false,
+) {
+  if (!recipeIds) {
+    return;
+  }
+
+  const recipeIdString = recipeIds.join(', ');
+
+  // const res = await _get(apiEndpoints.recipeDetailsBulk, {
+  //   ids: recipeIdString,
+  //   includeNutrition,
+  // });
+  //
+  // const recipeDetailsBulk = formatRandomRecipes(res.data);
+
+  const recipeDetailsBulk = [
+    {
+      id: '715538',
+      img: 'https://img.spoonacular.com/recipes/715538-556x370.jpg',
+      time: '35',
+      title: 'What to make for dinner tonight?? Bruschetta Style Pork & Pasta',
+    },
+    {
+      id: '716429',
+      img: 'https://img.spoonacular.com/recipes/716429-556x370.jpg',
+      time: '45',
+      title: 'Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs',
+    },
+  ];
+
+  return recipeDetailsBulk;
+}
+
+export async function getSearchResultsFromApi(query: string) {
+  const res = await _get(apiEndpoints.search, {
+    addRecipeInformation: true,
+  });
+
+  const searchResults = formatRandomRecipes(res.data?.results);
+
+  return searchResults;
+}
