@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
@@ -7,12 +8,11 @@ import TextBlock from '@components/customText';
 import IconButton from '@components/iconButton';
 import useStyles from '@hooks/useStyles';
 import useThemeContext from '@hooks/useThemeContext';
+import useFavourites from '@hooks/useFavourites';
 import { fontSize } from '@constants/fonts';
 import ROUTES from '@constants/routes';
 
 import recipeCardStyles from './styles';
-import useFavourites from '@hooks/useFavourites';
-import { useMemo } from 'react';
 
 function RecipeCard({ id, title, time, img }: RecipeCardProps) {
   const { colors, gradients } = useThemeContext();
