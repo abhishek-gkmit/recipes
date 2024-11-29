@@ -1,5 +1,5 @@
-import {useCallback, useMemo, memo} from 'react';
-import {View, ScrollView} from 'react-native';
+import { useCallback, useMemo, memo } from 'react';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import uuid from 'react-native-uuid';
 
 import ToggleButton from '@components/toggleButton';
@@ -33,6 +33,10 @@ function ToggleFilterList({
   activeFilters,
   selectMultipleFilters,
   onFiltersChange,
+  style,
+  textStyle,
+  scrollView,
+  scrollViewContent,
 }: ToggleFilterListProps) {
   const styles = useStyles(toggleFilterListStyles);
 
@@ -69,12 +73,13 @@ function ToggleFilterList({
   }, [filters, handleFilterToggle]);
 
   return (
-    <View style={styles.scrollViewContainer}>
-      <TextBlock style={styles.title}>{title || 'Select item'}</TextBlock>
+    <View style={StyleSheet.compose(styles.scrollViewContainer, style)}>
+      <TextBlock style={StyleSheet.compose(styles.title, textStyle)}>{title || 'Select item'}</TextBlock>
 
       <ScrollView
         horizontal
-        contentContainerStyle={styles.scrollViewContent}
+        contentContainerStyle={StyleSheet.compose(styles.scrollViewContent, scrollViewContent)}
+        style={scrollView}
         showsHorizontalScrollIndicator={false}>
         {filtersToRender}
       </ScrollView>

@@ -73,8 +73,14 @@ export async function getRecipeDetailsBulk(
   return recipeDetailsBulk;
 }
 
-export async function getSearchResultsFromApi(query: string) {
+export async function getSearchResultsFromApi(query: string, cuisineFilters: string[], dietFilters: string[]) {
+  const cuisine = cuisineFilters.join(',');
+  const diet = dietFilters.join(',');
+
   const res = await _get(apiEndpoints.search, {
+    query,
+    cuisine,
+    diet,
     addRecipeInformation: true,
   });
 
