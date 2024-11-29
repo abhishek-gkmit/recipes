@@ -26,4 +26,6 @@ const diets = [
 const ingredientImageUrl = (imageName: string) =>
   `https://img.spoonacular.com/ingredients_500x500/${imageName}`;
 
-export { colorSchemes, cuisines, diets, ingredientImageUrl };
+const FAVOURITES_RECIPES = 'favourites';
+
+export { colorSchemes, cuisines, diets, ingredientImageUrl, FAVOURITES_RECIPES };
