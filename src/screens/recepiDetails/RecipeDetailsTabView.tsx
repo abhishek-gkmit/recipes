@@ -6,7 +6,7 @@ import {
 import { TabBar, TabView } from 'react-native-tab-view';
 
 import TextBlock from '@components/customText';
-import FadeInSlideUp from '@components/fadeInSlideUp';
+import FadeInSlideUp from '@components/animations/fadeInSlideUp';
 import IngredientCard from '@components/ingredientCard';
 import useThemeContext from '@hooks/useThemeContext';
 import { removeHtmlTags } from '@utility/helpers';

@@ -1,26 +1,50 @@
-import {View, TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import TextBlock from '@components/customText';
 import IconButton from '@components/iconButton';
 import useStyles from '@hooks/useStyles';
 import useThemeContext from '@hooks/useThemeContext';
-import {fontSize} from '@constants/fonts';
+import { fontSize } from '@constants/fonts';
+import ROUTES from '@constants/routes';
 
 import recipeCardStyles from './styles';
+import useFavourites from '@hooks/useFavourites';
+import { useMemo } from 'react';
 
-function RecipeCard({id, title, time, img}: RecipeCardProps) {
-  const {colors, gradients} = useThemeContext();
+function RecipeCard({ id, title, time, img }: RecipeCardProps) {
+  const { colors, gradients } = useThemeContext();
+
+  const { favouriteRecipes, addToFavourites, removeFromFavourites } = useFavourites();
+
+  const navigation = useNavigation<NavigationProp<DashboardStackParamList>>();
 
   const styles = useStyles(recipeCardStyles);
+
+  const { isFavourite, action } = useMemo(() => {
+    const isFavourite = !!favouriteRecipes?.find(recipeId => recipeId === id);
+
+    const action = isFavourite ? () => removeFromFavourites(id) : () => addToFavourites(id);
+
+    return { isFavourite, action };
+  }, [id, favouriteRecipes, addToFavourites, removeFromFavourites]);
 
   return (
     <LinearGradient
       colors={gradients.recipeCard}
       style={styles.recipeCardGradient}>
-      <TouchableOpacity style={styles.recipeCard} activeOpacity={0.95}>
-        <FastImage source={{uri: img}} style={styles.recipeImage} />
+      <TouchableOpacity
+        style={styles.recipeCard}
+        activeOpacity={1}
+        onPress={() =>
+          navigation.navigate(ROUTES.DashboardStack.RecepiDetails, {
+            recepiId: id,
+          })
+        }>
+
+        <FastImage source={{ uri: img }} style={styles.recipeImage} />
 
         <TextBlock
           style={styles.recipeTitle}
@@ -29,18 +53,21 @@ function RecipeCard({id, title, time, img}: RecipeCardProps) {
           {title}
         </TextBlock>
 
-        <View style={styles.timeContainer}>
-          <TextBlock style={styles.timeHeading}>Time</TextBlock>
-          <TextBlock style={styles.time}>{time + ' Mins'}</TextBlock>
-        </View>
+        {time ?
+          <View style={styles.timeContainer}>
+            <TextBlock style={styles.timeHeading}>Time</TextBlock>
+            <TextBlock style={styles.time}>{time + ' Mins'}</TextBlock>
+          </View>
+          : null}
 
         <IconButton
           style={styles.favouritesButton}
           icon={{
-            name: 'heart-outline',
+            name: isFavourite ? 'heart' : 'heart-outline',
             color: colors.primary,
             size: fontSize.twentyFour,
           }}
+          onPress={action}
         />
       </TouchableOpacity>
     </LinearGradient>

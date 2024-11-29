@@ -1,4 +1,4 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Favourites from '@screens/favourites';
 import MealPlanner from '@screens/mealPlanner';
@@ -12,7 +12,7 @@ const BottomTabs = createBottomTabNavigator<BottomTabsParamList>();
 function BottomTabsNavigator() {
   return (
     <BottomTabs.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{ headerShown: false }}
       tabBar={props => <BottomTabBar {...props} />}>
       <BottomTabs.Screen
         name={ROUTES.BottomTabs.DashboardStack}
