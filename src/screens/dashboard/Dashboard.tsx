@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import TextBlock from '@components/customText';
 import ButtonWithIcon from '@components/buttonWithIcon';
@@ -8,6 +9,7 @@ import ToggleFilterList from '@components/toggleFilterList';
 import useStyles from '@hooks/useStyles';
 import { getRandomRecipes } from '@network/apiMethods';
 import { cuisines, diets } from '@constants';
+import ROUTES from '@constants/routes';
 
 import getGlobalStyles from '@theme/globalStyles';
 import dashboardStyles from './styles';
@@ -23,6 +25,8 @@ function Dashboard() {
   const [dietFilters, setDietFilters] = useState<string[]>(['Vegetarian']);
   const [dietLoading, setDietLoading] = useState(false);
   const [cuisineLoading, setCuisineLoading] = useState(false);
+
+  const navigation = useNavigation<NavigationProp<DashboardStackParamList>>();
 
   const globalStyles = useStyles(getGlobalStyles);
   const localStyles = useStyles(dashboardStyles);
@@ -64,6 +68,7 @@ function Dashboard() {
         text="Search by ingredients or recipe name"
         style={localStyles.searchBtn}
         textStyle={localStyles.searchBtnText}
+        onPress={() => navigation.navigate(ROUTES.DashboardStack.Search)}
       />
 
       <ToggleFilterList

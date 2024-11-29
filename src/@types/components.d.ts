@@ -80,6 +80,10 @@ declare global {
     title?: string;
     selectMultipleFilters?: boolean;
     onFiltersChange?: (filters: string[]) => void;
+    style?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    scrollView?: StyleProp<ViewStyle>;
+    scrollViewContent?: StyleProp<ViewStyle>;
   }
 
   interface IngredientCardProps extends Ingredient {

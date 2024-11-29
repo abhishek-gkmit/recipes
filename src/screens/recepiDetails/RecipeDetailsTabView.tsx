@@ -6,7 +6,7 @@ import {
 import { TabBar, TabView } from 'react-native-tab-view';
 
 import TextBlock from '@components/customText';
-import FadeInSlideUp from '@components/fadeInSlideUp';
+import FadeInSlideUp from '@components/animations/fadeInSlideUp';
 import IngredientCard from '@components/ingredientCard';
 import useThemeContext from '@hooks/useThemeContext';
 import { removeHtmlTags } from '@utility/helpers';
@@ -63,7 +63,7 @@ function RecipeInstructionsList() {
   const styles = useStyles(recepiDetailsStyles);
 
   const serves = servings + (servings > 1 ? ' serves' : ' serve');
-  const steps = instructions.length || '' + ' Steps'
+  const steps = instructions.length + (instructions.length > 1 ? ' Steps' : ' Step');
 
   return (
     <ScrollView contentContainerStyle={styles.recipeInstructionList}>
