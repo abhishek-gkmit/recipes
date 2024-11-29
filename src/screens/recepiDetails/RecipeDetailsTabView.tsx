@@ -63,7 +63,7 @@ function RecipeInstructionsList() {
   const styles = useStyles(recepiDetailsStyles);
 
   const serves = servings + (servings > 1 ? ' serves' : ' serve');
-  const steps = instructions.length || '' + ' Steps'
+  const steps = instructions.length + (instructions.length > 1 ? ' Steps' : ' Step');
 
   return (
     <ScrollView contentContainerStyle={styles.recipeInstructionList}>
